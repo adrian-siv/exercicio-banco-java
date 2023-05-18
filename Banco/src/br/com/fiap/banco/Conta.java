@@ -18,10 +18,13 @@ public abstract class Conta {
 		saldo+=valor;
 	}
 	
-	public void sacar (double valor) throws SaldoInsuficienteException {
+	public void sacar (double valor) throws SaldoInsuficienteException, SaqueEmPoupancaException {
 		if (valor > saldo) {
 			throw new SaldoInsuficienteException("Seu saldo não é suficiente para realizar esta operação.");
-		}		
+		}
+		if (this.getClass().getSimpleName() == "ContaPoupanca") {
+			throw new SaqueEmPoupancaException("Não é possível realizar saques em contas poupança.");
+		}
 		saldo-= valor;
 	}
 	
