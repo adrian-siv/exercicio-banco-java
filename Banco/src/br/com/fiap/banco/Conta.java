@@ -13,11 +13,11 @@ public class Conta {
 		if (valor < 0) {
 			throw new DepositoNegativoException("Não é possível fazer depósito de um valor negativo!");
 		}
-		
 		saldo+=valor;
 	}
 	
 	public void sacar (double valor) {
+	
 		saldo-= valor;
 	}
 
