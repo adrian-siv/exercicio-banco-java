@@ -4,8 +4,8 @@ public class ContaCorrente extends Conta{
 	
 	private double tarifa;
 	
-	public ContaCorrente(String numero) {
-		super(numero);
+	public ContaCorrente(String numero, String nome) {
+		super(numero, nome);
 	}
 
 	public double getTafira() {

@@ -4,9 +4,11 @@ public abstract class Conta {
 	
 	private String numero;
 	private double saldo;
+	private String nome;
 	
-	public Conta (String numero) {
+	public Conta (String numero, String nome) {
 		this.numero = numero;
+		this.nome = nome;
 	}
 	
 	public void depositar(double valor) throws DepositoNegativoException {
@@ -24,9 +26,12 @@ public abstract class Conta {
 	}
 	
 	
-	public void transferir (double valor, Conta contaDestinataria) throws SaldoInsuficienteException {
+	public void transferir (double valor, Conta contaDestinataria) throws SaldoInsuficienteException, TitularidadesDiferentesException {
 		if (valor > saldo) {
 			throw new SaldoInsuficienteException("Seu saldo não é suficiente para realizar esta operação.");
+		}
+		if (this.nome != contaDestinataria.nome) {
+			throw new TitularidadesDiferentesException("Não é possível realizar transferências entre contas com titularidades diferentes");
 		}
 		this.saldo -= valor;
 		contaDestinataria.saldo += valor;
