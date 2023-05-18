@@ -38,6 +38,8 @@ public class App {
 			System.err.println("Um erro aconteceu: " + e.getMessage());
 		} catch (TitularidadesDiferentesException e) {
 			System.err.println("Um erro aconteceu: " + e.getMessage());
+		} catch (TransferenciaNegativaException e) {
+			System.err.println("Um erro aconteceu: " + e.getMessage());
 		}
 		
 		System.out.println("Saldo conta 1 = " + conta1.getSaldo());
@@ -50,11 +52,30 @@ public class App {
 			System.err.println("Um erro aconteceu: " + e.getMessage());
 		} catch (TitularidadesDiferentesException e) {
 			System.err.println("Um erro aconteceu: " + e.getMessage());
+		} catch (TransferenciaNegativaException e) {
+			System.err.println("Um erro aconteceu: " + e.getMessage());
 		}
 		
 		System.out.println("Saldo conta 1 = " + conta1.getSaldo());
 		System.out.println("Saldo conta 2 = " + conta2.getSaldo());
 		System.out.println("Saldo conta 3 = " + conta3.getSaldo());
+		
+		try {
+			conta2.transferir(-50, conta3);
+		} catch (SaldoInsuficienteException e) {
+			System.err.println("Um erro aconteceu: " + e.getMessage());
+		} catch (TitularidadesDiferentesException e) {
+			System.err.println("Um erro aconteceu: " + e.getMessage());
+		} catch (TransferenciaNegativaException e) {
+			System.err.println("Um erro aconteceu: " + e.getMessage());
+		}
+		
+		System.out.println("Saldo conta 1 = " + conta1.getSaldo());
+		System.out.println("Saldo conta 2 = " + conta2.getSaldo());
+		System.out.println("Saldo conta 3 = " + conta3.getSaldo());
+		
+		
+		
 		
 	}
 

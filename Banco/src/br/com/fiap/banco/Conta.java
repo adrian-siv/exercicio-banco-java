@@ -26,7 +26,10 @@ public abstract class Conta {
 	}
 	
 	
-	public void transferir (double valor, Conta contaDestinataria) throws SaldoInsuficienteException, TitularidadesDiferentesException {
+	public void transferir (double valor, Conta contaDestinataria) throws SaldoInsuficienteException, TitularidadesDiferentesException, TransferenciaNegativaException {
+		if (valor < 0) {
+			throw new TransferenciaNegativaException("Não é possível fazer transferência de um valor negativo.");
+		}
 		if (valor > saldo) {
 			throw new SaldoInsuficienteException("Seu saldo não é suficiente para realizar esta operação.");
 		}
