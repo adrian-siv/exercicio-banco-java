@@ -4,8 +4,8 @@ public class ContaPoupanca extends Conta {
 	
 
 	private double taxa;
-	public ContaPoupanca(String numero) {
-		super(numero);
+	public ContaPoupanca(String numero, String nome) {
+		super(numero, nome);
 	}
 	
 	public double getTaxa() {
